@@ -1,0 +1,286 @@
+*
+   box-sizing: border-box
+   margin: 0
+   padding: 0
+
+=flex($justify: flex-start, $align-i: flex-start, $align-c: flex-start)
+   display: flex
+   flex-wrap: wrap
+   justify-content: $justify
+   align-items: $align-i
+   align-content: $align-c
+
+=form($width, $height)
+   margin: 5px
+   padding: 7px
+   width: $width
+   height: $height
+   font-family: $font
+   font-size: 15px
+   @media (min-width: $break4)
+      font-size: 18px
+=form-colors
+   background-color: white
+   border: 2px solid $secondColor
+   box-shadow: 0 0 2px 2px white
+   &::placeholder
+      color: #999
+
+$break1: 320px
+$break2: 568px
+$break3: 768px
+$break4: 1024px
+$break5: 1280px
+
+$mainColor: #dfdfe1
+$secondColor: #e3cfd0
+$thirdColor: #f0f1f4
+$font: "Syne Mono", monospace
+
+body
+   font-family: $font
+   width: 100%
+   background-color: $thirdColor
+   line-height: 1.5
+
+header
+   position: relative
+   width: 100%
+   background-color: $mainColor
+   h1
+      text-align: center
+      color: black
+      line-height: 1.5
+      letter-spacing: 10px
+      padding: 20px 5px
+      text-shadow: 3px 3px 1px $secondColor, 5px 5px 1px white
+      @media (min-width: $break1)
+         padding: 35px 5px
+      @media (min-width: $break3)
+         font-size: 40px
+         letter-spacing: 12px
+         padding: 40px 5px
+      @media (min-width: $break5)
+         font-size: 45px
+         letter-spacing: 14px
+         padding: 60px 5px
+
+   nav
+      width: 100%
+      text-align: center
+      background-color: $secondColor
+      padding: 5px
+      border-top: 2px outset #f0f1f4
+      border-bottom: 2px outset #f0f1f4
+      text-transform: uppercase
+      +flex(center, center)
+      @media (min-width: $break1)
+         padding: 10px
+      @media (min-width: $break4)
+         padding: 0
+      .fa-bars, p
+         font-size: 24px
+         padding: 5px
+         display: block
+         @media (min-width: $break1)
+            font-size: 26px
+         @media (min-width: $break3)
+            font-size: 32px
+         @media (min-width: $break4)
+            display: none
+      .menu
+         position: absolute
+         top: 100%
+         left: 0
+         display: block
+         width: 100%
+         list-style: none
+         opacity: 0.9
+         display: none
+         @media (min-width: $break4)
+            position: relative
+            +flex(space-around,  flex-start, flex-start)
+         li
+            width: 100%
+            font-size: 24px
+            line-height: 40px
+            background-color: $secondColor
+            border-bottom: 1px solid #f0f1f4
+            transition: 0.1s
+            @media (min-width: $break4)
+               border-bottom: none
+               width: 20%
+               padding: 20px
+            &:hover
+               filter: brightness(110%)
+               cursor: pointer
+p
+   font-size: 15px
+   @media (min-width: $break1)
+      font-size: 16px
+   @media (min-width: $break3)
+      font-size: 22px
+section
+   position: relative
+   padding: 20px 5px
+   +flex(flex-start, center, space-between)
+   @media (min-width: $break2)
+      width: 95%
+      margin: 0 auto
+   @media (min-width: $break3)
+      width: 85%
+   @media (min-width: $break4)
+      width: 70%
+   @media (min-width: $break5)
+      width: 65%
+   h2
+      width: 100%
+      text-align: center
+      padding: 20px 70px
+      text-shadow: 2px 2px 2px $secondColor, 4px 4px 2px white
+      text-transform: uppercase
+      letter-spacing: 5px
+      @media (min-width: $break1)
+         font-size: 26px
+      @media (min-width: $break3)
+         font-size: 34px
+         padding: 50px 70px
+.about
+   .part
+      flex-basis: 100%
+      +flex(flex-start, center, space-between)
+
+   .description
+      p
+         flex-grow: 1
+         text-align: center
+         padding: 0 10px 20px
+   .opening
+      padding: 20px 0
+      @media (min-width: $break4)
+         flex-basis: 50%
+         margin: auto
+      h3
+         width: 100%
+         padding: 15px
+         text-align: center
+         @media (min-width: $break3)
+            font-size: 24px
+      .hours
+         margin: 5px auto
+         width: 70%
+         +flex(space-between)
+
+   img
+      width: 95%
+      height: 100%
+      margin: 0 auto
+      margin: 5% auto
+      border-radius: 50% 30%
+      @media (min-width: $break2)
+         width: 70%
+      @media (min-width: $break4)
+         width: 50%
+.opinions
+   .wrapper
+      width: 100%
+      padding: 10px
+      @media (min-width: $break3)
+         width: 60%
+         margin: 0 auto
+      .opinion
+         text-align: center
+         padding: 5px
+      .author
+         font-size: 14px
+         padding: 5px
+         text-align: right
+         @media (min-width: $break3)
+            font-size: 20px
+
+.gallery
+   .wrapper
+      width: 100%
+      padding: 10px
+      +flex(space-around, flex-start, space-between)
+      a
+         margin: 2.5%
+         width: 45%
+         transition: 0.1s
+         &:hover
+            transform: scale(1.05)
+         @media (min-width: $break2)
+            margin: 1%
+            width: 30%
+         @media (min-width: $break5)
+            margin: 0.5%
+            width: 23%
+
+         img
+            width: 100%
+            box-shadow: 0 0 5px 5px white
+            @media (min-width: $break3)
+               box-shadow: 0 0 5px 5px white
+.valuation
+   form
+      width: 100%
+      margin: 5px auto
+      +flex(center)
+      @media (min-width: $break1)
+         width: 95%
+      @media (min-width: $break2)
+         width: 80%
+      @media (min-width: $break3)
+         width: 70%
+      @media (min-width: $break4)
+         width: 60%
+      input
+         +form(100%, 40px)
+         +form-colors
+
+      textarea
+         +form(100%, 100px)
+         +form-colors
+      button
+         display: block
+         background-color: $secondColor
+         border: 2px outset $secondColor
+         transition: 0.1s
+         +form(100px, 40px)
+         &:hover
+            transform: scale(1.05)
+            cursor: pointer
+
+.contact
+   .info
+      padding: 10px 5px
+      +flex(center)
+      @media (min-width: $break2)
+         width: 90%
+         margin: 0 auto
+      @media (min-width: $break4)
+         flex-basis: 50%
+      .address, .numbers
+         width: 100%
+         padding: 5px
+         font-size: 15px
+      .strong
+         font-weight: bold
+   #map
+      display: block
+      width: 90%
+      height: 250px
+      margin: 10px auto
+      @media (min-width: $break3)
+         height: 350px
+      @media (min-width: $break4)
+         flex-basis: 50%
+footer
+   width: 100%
+   padding: 10px
+   background-color: $secondColor
+   text-align: center
+   border-top: 2px outset white
+   a
+      text-decoration: none
+      color: $thirdColor
