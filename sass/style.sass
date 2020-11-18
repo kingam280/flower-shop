@@ -92,11 +92,13 @@ header
          position: absolute
          top: 100%
          left: 0
-         display: block
          width: 100%
          list-style: none
-         opacity: 0.9
+
          display: none
+         z-index: 1
+         &.active
+            display: block
          @media (min-width: $break4)
             position: relative
             +flex(space-around,  flex-start, flex-start)
@@ -107,6 +109,8 @@ header
             background-color: $secondColor
             border-bottom: 1px solid #f0f1f4
             transition: 0.1s
+            @media (min-width: $break1)
+               padding: 3px
             @media (min-width: $break4)
                border-bottom: none
                width: 20%

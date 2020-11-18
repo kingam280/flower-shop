@@ -15,18 +15,18 @@
 	<header>
 		<h1>FLOWER HOUSE</h1>
 		<!-- <h1><span>FlowerHouse</span> Pracowania Florystyczna </h1> -->
-		<nav >
+		<nav>
 			<i class="fas fa-bars show"></i> <p>MENU</p>
 			<ul class="menu">
-				<li>O nas</li>
-				<li>Opinie</li>
-				<li>Galeria</li>
-				<li>Wycena</li>
-				<li>Kontakt</li>
+				<li data-key="about">O nas</li>
+				<li data-key="opinions">Opinie</li>
+				<li data-key="gallery">Galeria</li>
+				<li data-key="valuation">Wycena</li>
+				<li data-key="contact">Kontakt</li>
 			</ul>
 		</nav>
 	</header>
-	<section class="about">
+	<section class="about" data-key="about">
 		<div class="description part">
 			<h2>O nas</h2>
 			<p>Pracownia Florystyczna FlowerHouse powstała z miłości i pasji do kwiatów. W Naszej pracowni każdy znajdzie coś dla siebie.</p>
@@ -41,14 +41,14 @@
 		</div>
 		
 	</section>
-	<section class='opinions'>
+	<section class='opinions' data-key="opinions">
 		<h2>Opinie</h2>
 		<div class="wrapper">
 			<p class="opinion">Zawsze duży wybór, świeże kwiaty oraz przystępne ceny :) I oczywiście życzliwa obsługa.</p>
 			<p class="author">- majkel5454</p>
 		</div>
 	</section>
-	<section class='gallery'>
+	<section class='gallery' data-key="gallery">
 		<h2>Galeria</h2>
 		<div class="wrapper">
 			<a href="imgs/img2.png" data-lightbox="roadtrip"><img src="./imgs/img2_min.jpg" alt=""></a>
@@ -67,17 +67,17 @@
 		</div>
 
 	</section>
-	<section class='valuation'>
+	<section class='valuation' data-key="valuation">
 		<h2>Wycena</h2>
 		<form>
-			<input type="text" id="name" placeholder="Imię">
+			<input type="number" id="name" placeholder="Imię">
 			<input type="tel" id="phone" placeholder="Telefon">
 			<input type="email" id="mail" placeholder="E-mail">
 			<textarea name="content" id="content" placeholder="W czym możemy pomóc?"></textarea>
 			<button>Wyślij</button>
 		</form>
 	</section>
-	<section class='contact'>
+	<section class='contact' data-key="contact">
 		<h2>Kontakt</h2>
 		<div class="info">
 			
@@ -99,6 +99,6 @@
 	</footer>
 
 	<script src="dist/js/lightbox-plus-jquery.min.js" ></script>
-	<script src="script.js"></script>
+	<script type="module" src="script.js" ></script>
 </body>
 </html>
