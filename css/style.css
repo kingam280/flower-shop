@@ -193,6 +193,7 @@ p {
 }
 
 section {
+  overflow-x: hidden;
   padding: 20px 5px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -665,6 +666,10 @@ section h2.active {
 
 .contact .info {
   padding: 10px 5px;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -678,6 +683,11 @@ section h2.active {
           align-items: flex-start;
   -ms-flex-line-pack: start;
       align-content: flex-start;
+}
+
+.contact .info.active {
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }
 
 @media (min-width: 568px) {
@@ -709,6 +719,15 @@ section h2.active {
   width: 90%;
   height: 250px;
   margin: 10px auto;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
+}
+
+.contact #map.active {
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }
 
 @media (min-width: 768px) {

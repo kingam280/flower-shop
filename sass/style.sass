@@ -139,6 +139,7 @@ p
       font-size: 22px
 section
    // position: relative
+   overflow-x: hidden
    padding: 20px 5px
    +flex(flex-start, center, space-between)
    @media (min-width: $break2)
@@ -295,7 +296,11 @@ section
 .contact
    .info
       padding: 10px 5px
+      transform: scale(0)
+      transition: 0.3s
       +flex(center)
+      &.active
+         transform: scale(1)
       @media (min-width: $break2)
          width: 90%
          margin: 0 auto
@@ -312,6 +317,10 @@ section
       width: 90%
       height: 250px
       margin: 10px auto
+      transform: scale(0)
+      transition: 0.3s linear
+      &.active
+         transform: scale(1)
       @media (min-width: $break3)
          height: 350px
       @media (min-width: $break4)
@@ -330,16 +339,12 @@ footer
    0%
       transform: translateX(250%)
       opacity: 0
-   // 5%
-   //    transform: translateX(250%)
    5%
       transform: translateX(0%)
       opacity: 1
    95%
       transform: translateX(0%)
       opacity: 1
-   // 95%
-   //    transform: translateX(-250%)
    100%
       transform: translateX(-250%)
       opacity: 0

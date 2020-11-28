@@ -17,6 +17,8 @@ class App {
         this.gallery = [...document.querySelectorAll(".gallery img")]
         this.formSection = document.querySelector(".valuation form")
         this.inputs = [...document.querySelectorAll(".valuation input, .valuation textarea, .valuation button")]
+        this.contactInfo = document.querySelector(".contact .info")
+        this.map = document.querySelector("#map")
 
         this.menuClass = new Menu(this.nav, this.menu);
         this.slider = new Slider(this.opinionDiv, this.authorDiv)
@@ -34,8 +36,10 @@ class App {
 
         this.scroll.showGallery(this.gallery, this.galleryDiv)
         this.scroll.showForm(this.formSection, this.inputs)
+        this.scroll.showContact(this.contactInfo, this.map)
         document.addEventListener("scroll", () => this.scroll.showGallery(this.gallery, this.galleryDiv))
         document.addEventListener("scroll", () => this.scroll.showForm(this.formSection, this.inputs))
+        document.addEventListener("scroll", () => this.scroll.showContact(this.contactInfo, this.map))
 
     }
 }

@@ -52,8 +52,16 @@ export class Scroll {
             }
         })
     }
-    showContact() {
-
+    showContact(info, map) {
+        const scroll = window.scrollY;
+        const infoFromTop = info.offsetTop;
+        const mapFromTop = map.offsetTop;
+        const height = window.innerHeight
+        if (scroll > infoFromTop - 0.8 * height) {
+            info.classList.add("active")
+        }
+        if (scroll > mapFromTop - 0.8 * height) {
+            map.classList.add("active")
+        }
     }
-    
 }

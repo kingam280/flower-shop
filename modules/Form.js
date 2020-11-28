@@ -15,7 +15,6 @@ export class Form {
                     errors.push(inputContent)
                 }
             })
-            // debugger
             if (!_message.value) errors.push(_message.dataset.key)
             if (!mail.value.includes("@") && !errors.includes(mail.dataset.key)) errors.push(mail.dataset.key)
 
