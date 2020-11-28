@@ -2,12 +2,11 @@ export class Menu {
     constructor(nav, menu){
         this.nav = nav;
         this.menu = menu;
-
+        this.navFromTop = this.nav.offsetTop
     }
 
     showMenu(e) {
         if (e.target.dataset.key) return
-
         this.menu.classList.toggle("active")
     }
 
@@ -23,5 +22,11 @@ export class Menu {
         if (document.body.clientWidth < 1024) {
             this.menu.classList.remove("active")
         }
+    }
+
+    stickToTop() {
+        const y = window.scrollY
+        if (y >= this.menuClass.navFromTop) this.menuClass.nav.classList.add("active")
+        if (y < this.menuClass.navFromTop) this.menuClass.nav.classList.remove("active")
     }
 }

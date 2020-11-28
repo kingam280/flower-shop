@@ -26,10 +26,19 @@
    &::placeholder
       color: #999
 
+=scroll($x: 0, $y: 0, $time: 0.4s)
+   opacity: 0
+   transform: translate($x, $y)
+   transition: $time linear
+   &.active
+      box-shadow: 0 0 5px 5px white
+      opacity: 1
+      transform: translate(0%)
+
 $break1: 320px
 $break2: 568px
 $break3: 768px
-$break4: 1024px
+$break4: 1025px
 $break5: 1280px
 
 $mainColor: #dfdfe1
@@ -74,6 +83,10 @@ header
       border-bottom: 2px outset #f0f1f4
       text-transform: uppercase
       +flex(center, center)
+      &.active
+         position: fixed
+         top: 0
+         z-index: 1
       @media (min-width: $break1)
          padding: 10px
       @media (min-width: $break4)
@@ -125,7 +138,7 @@ p
    @media (min-width: $break3)
       font-size: 22px
 section
-   position: relative
+   // position: relative
    padding: 20px 5px
    +flex(flex-start, center, space-between)
    @media (min-width: $break2)
@@ -144,6 +157,12 @@ section
       text-shadow: 2px 2px 2px $secondColor, 4px 4px 2px white
       text-transform: uppercase
       letter-spacing: 5px
+      // opacity: 0
+      // transform: translateY(-30%)
+      // transition: .4s linear
+      &.active
+         opacity: 1
+         transform: translateX(0%)
       @media (min-width: $break1)
          font-size: 26px
       @media (min-width: $break3)
@@ -187,21 +206,25 @@ section
          width: 50%
 .opinions
    .wrapper
+      +flex(flex-start, center, space-around)
       width: 100%
       padding: 10px
+      height: 200px
       @media (min-width: $break3)
          width: 60%
          margin: 0 auto
       .opinion
          text-align: center
          padding: 5px
+         animation: opinions 8s linear infinite
       .author
          font-size: 14px
          padding: 5px
+         width: 100%
          text-align: right
+         animation: opinions 8s linear infinite
          @media (min-width: $break3)
             font-size: 20px
-
 .gallery
    .wrapper
       width: 100%
@@ -222,9 +245,9 @@ section
 
          img
             width: 100%
-            box-shadow: 0 0 5px 5px white
-            @media (min-width: $break3)
-               box-shadow: 0 0 5px 5px white
+            +scroll(0, -30%)
+         // @media (min-width: $break3)
+         //    box-shadow: 0 0 5px 5px white
 .valuation
    form
       width: 100%
@@ -241,15 +264,29 @@ section
       input
          +form(100%, 40px)
          +form-colors
+         &:nth-child(odd)
+            +scroll(-100%)
+         &:nth-child(even)
+            +scroll(100%)
+
+      .alert
+         border-color: red
 
       textarea
+         +scroll(100%)
          +form(100%, 100px)
          +form-colors
+      .errors
+         width: 100%
+         text-align: center
+         padding: 5px
+
+         font-size: 12px
       button
          display: block
          background-color: $secondColor
          border: 2px outset $secondColor
-         transition: 0.1s
+         +scroll(0, -20%, 0.1s)
          +form(100px, 40px)
          &:hover
             transform: scale(1.05)
@@ -288,3 +325,21 @@ footer
    a
       text-decoration: none
       color: $thirdColor
+
+@keyframes opinions
+   0%
+      transform: translateX(250%)
+      opacity: 0
+   // 5%
+   //    transform: translateX(250%)
+   5%
+      transform: translateX(0%)
+      opacity: 1
+   95%
+      transform: translateX(0%)
+      opacity: 1
+   // 95%
+   //    transform: translateX(-250%)
+   100%
+      transform: translateX(-250%)
+      opacity: 0

@@ -70,10 +70,11 @@
 	<section class='valuation' data-key="valuation">
 		<h2>Wycena</h2>
 		<form>
-			<input type="number" id="name" placeholder="Imię">
-			<input type="tel" id="phone" placeholder="Telefon">
-			<input type="email" id="mail" placeholder="E-mail">
-			<textarea name="content" id="content" placeholder="W czym możemy pomóc?"></textarea>
+			<input type="text" id="name" placeholder="Imię" data-key="imię">
+			<input type="tel" id="phone" placeholder="Telefon" data-key="numer telefonu">
+			<input type="email" id="mail" placeholder="E-mail" data-key="e-mail">
+			<textarea name="content" id="message" placeholder="W czym możemy pomóc?" data-key="wiadomość"></textarea>
+			<div class="errors"></div>
 			<button>Wyślij</button>
 		</form>
 	</section>

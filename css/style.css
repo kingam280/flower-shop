@@ -72,13 +72,19 @@ header nav {
       align-content: flex-start;
 }
 
+header nav.active {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+
 @media (min-width: 320px) {
   header nav {
     padding: 10px;
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
   header nav {
     padding: 0;
   }
@@ -102,7 +108,7 @@ header nav .fa-bars, header nav p {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
   header nav .fa-bars, header nav p {
     display: none;
   }
@@ -122,7 +128,7 @@ header nav .menu.active {
   display: block;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
   header nav .menu {
     position: relative;
     display: -webkit-box;
@@ -156,7 +162,7 @@ header nav .menu li {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
   header nav .menu li {
     border-bottom: none;
     width: 20%;
@@ -187,7 +193,6 @@ p {
 }
 
 section {
-  position: relative;
   padding: 20px 5px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -217,7 +222,7 @@ section {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
   section {
     width: 70%;
   }
@@ -236,6 +241,12 @@ section h2 {
   text-shadow: 2px 2px 2px #e3cfd0, 4px 4px 2px white;
   text-transform: uppercase;
   letter-spacing: 5px;
+}
+
+section h2.active {
+  opacity: 1;
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
 }
 
 @media (min-width: 320px) {
@@ -281,7 +292,7 @@ section h2 {
   padding: 20px 0;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
   .about .opening {
     -ms-flex-preferred-size: 50%;
         flex-basis: 50%;
@@ -333,15 +344,29 @@ section h2 {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
   .about img {
     width: 50%;
   }
 }
 
 .opinions .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: distribute;
+      align-content: space-around;
   width: 100%;
   padding: 10px;
+  height: 200px;
 }
 
 @media (min-width: 768px) {
@@ -354,12 +379,17 @@ section h2 {
 .opinions .wrapper .opinion {
   text-align: center;
   padding: 5px;
+  -webkit-animation: opinions 8s linear infinite;
+          animation: opinions 8s linear infinite;
 }
 
 .opinions .wrapper .author {
   font-size: 14px;
   padding: 5px;
+  width: 100%;
   text-align: right;
+  -webkit-animation: opinions 8s linear infinite;
+          animation: opinions 8s linear infinite;
 }
 
 @media (min-width: 768px) {
@@ -413,15 +443,19 @@ section h2 {
 
 .gallery .wrapper a img {
   width: 100%;
-  -webkit-box-shadow: 0 0 5px 5px white;
-          box-shadow: 0 0 5px 5px white;
+  opacity: 0;
+  -webkit-transform: translate(0, -30%);
+          transform: translate(0, -30%);
+  -webkit-transition: 0.4s linear;
+  transition: 0.4s linear;
 }
 
-@media (min-width: 768px) {
-  .gallery .wrapper a img {
-    -webkit-box-shadow: 0 0 5px 5px white;
-            box-shadow: 0 0 5px 5px white;
-  }
+.gallery .wrapper a img.active {
+  -webkit-box-shadow: 0 0 5px 5px white;
+          box-shadow: 0 0 5px 5px white;
+  opacity: 1;
+  -webkit-transform: translate(0%);
+          transform: translate(0%);
 }
 
 .valuation form {
@@ -460,7 +494,7 @@ section h2 {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
   .valuation form {
     width: 60%;
   }
@@ -479,7 +513,7 @@ section h2 {
           box-shadow: 0 0 2px 2px white;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
   .valuation form input {
     font-size: 18px;
   }
@@ -501,7 +535,48 @@ section h2 {
   color: #999;
 }
 
+.valuation form input:nth-child(odd) {
+  opacity: 0;
+  -webkit-transform: translate(-100%, 0);
+          transform: translate(-100%, 0);
+  -webkit-transition: 0.4s linear;
+  transition: 0.4s linear;
+}
+
+.valuation form input:nth-child(odd).active {
+  -webkit-box-shadow: 0 0 5px 5px white;
+          box-shadow: 0 0 5px 5px white;
+  opacity: 1;
+  -webkit-transform: translate(0%);
+          transform: translate(0%);
+}
+
+.valuation form input:nth-child(even) {
+  opacity: 0;
+  -webkit-transform: translate(100%, 0);
+          transform: translate(100%, 0);
+  -webkit-transition: 0.4s linear;
+  transition: 0.4s linear;
+}
+
+.valuation form input:nth-child(even).active {
+  -webkit-box-shadow: 0 0 5px 5px white;
+          box-shadow: 0 0 5px 5px white;
+  opacity: 1;
+  -webkit-transform: translate(0%);
+          transform: translate(0%);
+}
+
+.valuation form .alert {
+  border-color: red;
+}
+
 .valuation form textarea {
+  opacity: 0;
+  -webkit-transform: translate(100%, 0);
+          transform: translate(100%, 0);
+  -webkit-transition: 0.4s linear;
+  transition: 0.4s linear;
   margin: 5px;
   padding: 7px;
   width: 100%;
@@ -514,7 +589,15 @@ section h2 {
           box-shadow: 0 0 2px 2px white;
 }
 
-@media (min-width: 1024px) {
+.valuation form textarea.active {
+  -webkit-box-shadow: 0 0 5px 5px white;
+          box-shadow: 0 0 5px 5px white;
+  opacity: 1;
+  -webkit-transform: translate(0%);
+          transform: translate(0%);
+}
+
+@media (min-width: 1025px) {
   .valuation form textarea {
     font-size: 18px;
   }
@@ -536,12 +619,22 @@ section h2 {
   color: #999;
 }
 
+.valuation form .errors {
+  width: 100%;
+  text-align: center;
+  padding: 5px;
+  font-size: 12px;
+}
+
 .valuation form button {
   display: block;
   background-color: #e3cfd0;
   border: 2px outset #e3cfd0;
-  -webkit-transition: 0.1s;
-  transition: 0.1s;
+  opacity: 0;
+  -webkit-transform: translate(0, -20%);
+          transform: translate(0, -20%);
+  -webkit-transition: 0.1s linear;
+  transition: 0.1s linear;
   margin: 5px;
   padding: 7px;
   width: 100px;
@@ -550,7 +643,15 @@ section h2 {
   font-size: 15px;
 }
 
-@media (min-width: 1024px) {
+.valuation form button.active {
+  -webkit-box-shadow: 0 0 5px 5px white;
+          box-shadow: 0 0 5px 5px white;
+  opacity: 1;
+  -webkit-transform: translate(0%);
+          transform: translate(0%);
+}
+
+@media (min-width: 1025px) {
   .valuation form button {
     font-size: 18px;
   }
@@ -586,7 +687,7 @@ section h2 {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
   .contact .info {
     -ms-flex-preferred-size: 50%;
         flex-basis: 50%;
@@ -616,7 +717,7 @@ section h2 {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
   .contact #map {
     -ms-flex-preferred-size: 50%;
         flex-basis: 50%;
@@ -634,5 +735,51 @@ footer {
 footer a {
   text-decoration: none;
   color: #f0f1f4;
+}
+
+@-webkit-keyframes opinions {
+  0% {
+    -webkit-transform: translateX(250%);
+            transform: translateX(250%);
+    opacity: 0;
+  }
+  5% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+    opacity: 1;
+  }
+  95% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateX(-250%);
+            transform: translateX(-250%);
+    opacity: 0;
+  }
+}
+
+@keyframes opinions {
+  0% {
+    -webkit-transform: translateX(250%);
+            transform: translateX(250%);
+    opacity: 0;
+  }
+  5% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+    opacity: 1;
+  }
+  95% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateX(-250%);
+            transform: translateX(-250%);
+    opacity: 0;
+  }
 }
 /*# sourceMappingURL=style.css.map */
