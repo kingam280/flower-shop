@@ -11,7 +11,6 @@ export class Slider {
         this.changeSlide = () => {
             currentSlide++
             if (currentSlide >= _opinions.length) currentSlide = 0
-            // debugger
             this.opinionDiv.textContent = _opinions[currentSlide]
             this.authorDiv.textContent = _authors[currentSlide]
         }
