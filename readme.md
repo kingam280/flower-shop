@@ -5,7 +5,7 @@ Website Flower House is created to work on my web developments skills.
 ## Technologies
 
 - HTML
-- CSS
+- SASS
 - JavaScript
 - Lightbox
 
